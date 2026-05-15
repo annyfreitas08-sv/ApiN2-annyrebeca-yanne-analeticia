@@ -39,10 +39,14 @@ export default app;
 
 app.get("/products", (req, res) => {
   const products = [
-    {id: 1, nome: "Teclado", disponivel: true},
-    {id: 2, nome: "Mouse", disponivel: true},
-    {id: 3, nome: "Monitor", disponivel: false},
-    {id: 4, nome: "Caixa de Som", disponivel: false},
+    {id: 1, nome: "Ainda estou aqui", disponivel: true},
+    {id: 2, nome: "Se não fosse por você", disponivel: true},
+    {id: 3, nome: "Amor em Roma", disponivel: false},
+    {id: 4, nome: "Melhor do que nos filmes", disponivel: true},
+    {id: 5, nome: "Não é como nos filmes", disponivel: false},
+    {id: 6, nome: "Apostando no amor", disponivel: true},
+    {id: 7, nome: "A hipotése do amor", disponivel: false},
+    {id: 8, nome: "Amor, teoricamente", disponivel: true},
   ];
   res.render("products", {listaProdutos: products});
 });
