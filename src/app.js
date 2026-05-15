@@ -1,3 +1,13 @@
+import path from "node:path";
+app.set("view engine", "ejs");
+app.set("views", path.join(import.meta.dirname, "views")); // Node.js 20.11+
+app.use(express.static(path.join(import.meta.dirname, "public")));
+app.use(express.json()); // Importante para rotas REST
+// --- ROTA DE VIEW (EJS) ---
+app.get("/home", (req, res) => {
+  res.render("home"); // Renderiza o esqueleto da página
+});                     
+
 import express from "express";
 import { router as apiRouter } from "./routes/api.routes.js";
 import { mdebug } from "./middlewares/debug.middleware.js";
@@ -8,6 +18,22 @@ app.use(mcors);
 app.use(express.json());
 app.use(mdebug);
 app.use("/api", apiRouter);
+
+ // --- ROTA DE VIEW (EJS) ---
+app.get("/home", (req, res) => {
+  res.render("home"); // Renderiza o esqueleto da página
+});
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+app.get("/products", (req, res) => {
+  res.render("products");
+});
+
 app.use(notFound);
 app.use(errorHandler);
 export default app;
+

@@ -1,3 +1,8 @@
+router.get("/home", (req, res) => {
+  const dados = {titulo: "Loja Virtual"};
+  res.json(dados); // Entrega o JSON puro
+});
+
 import { Router } from "express";
 import ApiController from "../controllers/api.controller.js";
 import verifyParamId from "../middlewares/verify.id.middleware.js";
