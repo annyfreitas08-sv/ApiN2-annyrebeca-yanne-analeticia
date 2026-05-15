@@ -37,3 +37,13 @@ app.use(notFound);
 app.use(errorHandler);
 export default app;
 
+app.get("/products", (req, res) => {
+  const products = [
+    {id: 1, nome: "Teclado", disponivel: true},
+    {id: 2, nome: "Mouse", disponivel: true},
+    {id: 3, nome: "Monitor", disponivel: false},
+    {id: 4, nome: "Caixa de Som", disponivel: false},
+  ];
+  res.render("products", {listaProdutos: products});
+});
+
